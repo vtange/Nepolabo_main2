@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/nekkodex", {data:[{}],fetch:{},mutations:void 0});

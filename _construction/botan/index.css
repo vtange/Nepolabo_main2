@@ -1,0 +1,40 @@
+body {
+    background-color: silver;
+    background-image: url(https://nepolabo.fans/art/gear.png);
+    background-repeat: no-repeat;
+    background-position: 25% 40%;
+    background-size: 50vh 50vh;
+    height:100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+h1, h2 {
+    background-color: rgba(255,255,255,0.75);
+    border-radius: 8px;
+    padding: 0 8px;
+}
+
+body > div {
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    height:100%;
+    width:100vw;
+}
+
+.worker-nekko {
+    background-image: url(https://nepolabo.fans/2022/src/nekko.png);
+}
+
+.worker-zain {
+    background-image: url(https://nepolabo.fans/2022/src/zain.png);
+}
+
+.worker-yukimin {
+    background-image: url(https://nepolabo.fans/2022/src/yukimin.png);
+}
+
+.worker-ssrb {
+    background-image: url(https://nepolabo.fans/2022/src/ssrb.png);
+}

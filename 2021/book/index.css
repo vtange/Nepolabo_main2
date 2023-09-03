@@ -1,0 +1,89 @@
+body {
+    background: rgb(94,196,210);
+    background: linear-gradient(59deg, rgba(94,196,210,1) 0%, rgba(193,184,255,1) 19%, rgba(228,191,252,1) 38%, rgba(239,208,248,1) 58%, rgba(241,186,217,1) 82%, rgba(238,219,175,1) 100%);
+    font-size: 1.5rem;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 700;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+.book-entry {
+    padding: 1rem 2rem;
+    text-align: center;
+}
+
+hr {
+    border-color: rgba(10, 10, 10, 0.18);
+}
+
+button {
+    border: 2px solid gray;
+    border-radius: 10px;
+    border-color: #e03499;
+    background-color: #fff;
+    color: #e03499;
+    font-family: arial;
+    font-weight: 600;
+    height: 5rem;
+    width: 12rem;
+    cursor: pointer;
+}
+
+.container {
+    background-color: rgba(0,0,0,0.39);
+    border-radius: 25px;
+    color: white;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    margin: auto;
+    margin-bottom: 2rem;
+    max-width: 80vw;
+    position: relative;
+}
+
+.bookcover {
+    box-shadow: 5px 8px 20px -5px rgba(10, 10, 10, 0.75);
+    border-right: 4px ridge silver;
+    border-bottom: 4px ridge silver;
+    width: 15vw;
+    min-width: 200px;
+}
+
+.back-btn {
+    position: absolute;
+    right:0;
+    height: 3rem;
+    width: 6rem;
+}
+
+.credits-section p {
+    margin-bottom: 0.6rem;
+    margin-top: 0.6rem;
+}
+
+#disclaimer {
+    padding: 2.5rem;
+}
+
+
+.maybe-columns{
+    columns: 1;
+}
+/* medium */
+@media (min-width: 700px) {
+    .maybe-columns{
+        columns: 2;
+    }
+}
+/* lrg */
+@media (min-width: 1000px) {
+
+    .maybe-columns{
+        columns: 3;
+    }
+}

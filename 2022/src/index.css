@@ -1,0 +1,892 @@
+body {
+    font-family: "Merriweather", serif;
+    margin: 0;
+}
+
+#ie11-cover {
+    background-color: aliceblue;
+    transform: scale(0);
+    -ms-transform: scale(1);
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: 99;
+}
+
+#nojs-cover {
+    animation: slowShow 0.5s normal forwards ease-in-out;
+    animation-delay: 2s;
+    background-color: rgb(253, 213, 220);
+    border: 2px solid pink;
+    border-radius: 10px;
+    padding: 5px;
+    position: absolute;
+    left: 50%;
+    opacity:0;
+    top: 2rem;
+    transform: translatex(-50%);
+    z-index: 99;
+}
+
+#tutorial {
+    color:white;
+    font-family: arial, sans-serif;
+    position: absolute;
+    left:50%;
+    transform: translateX(-50%);
+    z-index: 1;
+}
+
+body[data-swaplang="JP"] span[data-swaplang="EN"],
+body[data-swaplang="EN"] span[data-swaplang="JP"] {
+    display:none;
+}
+
+/*--------------CREDITS---------------*/
+body:not(.showCredits) #credits-popup {
+    display: none;
+}
+
+.credits, #disclaimer {
+    color: white;
+}
+
+.credits p {
+    margin-bottom: 0.6rem;
+    margin-top: 0.6rem;
+}
+
+.maybe-columns {
+    columns: 1;
+}
+
+/* medium */
+@media (min-width: 700px) {
+    .maybe-columns{
+        columns: 2;
+    }
+}
+/* lrg */
+@media (min-width: 1000px) {
+    .maybe-columns {
+        columns: 3;
+    }
+}
+/*--------------BG---------------*/
+#content {
+    height: 100vh;
+    width: 100%;
+}
+
+.FULLSCRN {
+    background: url(sky.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+}
+/* so when you open the scrollable modals the girls and stars don't move left */
+body.showCredits .FULLSCRN,
+body.showMessages .FULLSCRN {
+    width: calc(100% + 16px);
+}
+
+#picnic {
+    background: url(nplb.png);
+    z-index: 1;
+}
+
+#picnictint {
+    background: url(nplbtint.png);
+    opacity: 0;
+    z-index: 2;
+}
+
+#picnic, #picnictint {
+    background-repeat: no-repeat;
+    background-size: contain;
+    bottom: 0;
+    filter: brightness(1);
+    height: 100%;
+    left:50%;
+    max-height: 25vh;
+    max-width: 71vh;
+    position: absolute;
+    transform: translateX(-50%);
+    transition: all 0.2s ease-out;
+    width: 100vh;
+}
+
+#sky > div {
+    transform: translate(-50%, -25%);
+}
+
+.firework-red {
+    filter: hue-rotate(45deg);
+}
+
+.firework-orange {
+    filter: hue-rotate(90deg);
+}
+
+.firework-yellow {
+    filter: hue-rotate(125deg);
+}
+
+.firework-green {
+    filter: hue-rotate(-180deg);
+}
+
+.firework-aqua {
+    filter: hue-rotate(-90deg);
+}
+
+.firework-blue {
+    filter: hue-rotate(-45deg);
+}
+
+.firework-purp {
+    filter: hue-rotate(0deg);
+}
+
+.uchiage {
+    animation: uchiage 1s ease-out;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    opacity: 0;
+}
+
+.sparkle,
+.sparkle1,
+.sparkle2 {
+    animation: sparkle 0.25s linear infinite;
+    background: url(uchiage.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    height:40px;
+    width:40px;
+    opacity: 0;
+}
+
+.sparkle1 {
+    animation-delay: 0.08s;
+}
+.sparkle2 {
+    animation-delay: 0.15s;
+}
+
+@keyframes uchiage {
+    0% {
+      transform: translateY(300px);
+      opacity: 0;
+    }
+    60% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(-100px);
+      opacity: 0.2;
+    }
+  }
+
+  @keyframes sparkle {
+    0% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+
+@keyframes firework {
+    0% {
+      filter: brightness(0.5);
+      transform: scale(0.0);
+      opacity: 0;
+    }
+    25% {
+      opacity: 1;
+    }
+    40% {
+      filter: brightness(1.5);
+      transform: scale(1.8);
+    }
+    70% {
+      background: url(pglow.png);
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+    90% {
+      filter: brightness(1.5);
+      opacity: 1;
+    }
+    100% {
+      background: url(pglow.png);
+      background-repeat: no-repeat;
+      background-size: contain;
+      filter: brightness(1);
+      transform: scale(3);
+      opacity: 0;
+    }
+  }
+
+  .firework {
+    animation: firework 2s normal forwards linear;
+    animation-delay: 1s;
+    background: url(p.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    height:200px;
+    opacity: 0;
+    transform: scale(0.0);
+    width:200px;
+}
+
+  .fireworkwithcolorchange {
+    animation: fireworkwithcolorchange 2s normal forwards linear;
+    animation-delay: 1s;
+    background: url(p.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    height:150px;
+    opacity: 0;
+    transform: scale(0.0);
+    width:150px;
+}
+
+  @keyframes fireworkwithcolorchange {
+      0% {
+        filter: brightness(0.5) hue-rotate(0deg);
+        transform: scale(0.0);
+        opacity: 0;
+      }
+      25% {
+        opacity: 1;
+      }
+      40% {
+        filter: brightness(1.5) hue-rotate(0deg);
+        transform: scale(1.8);
+      }
+      70% {
+        background: url(pglow.png);
+        background-repeat: no-repeat;
+        background-size: contain;
+      }
+      90% {
+        filter: brightness(1.5) hue-rotate(90deg);
+        opacity: 1;
+      }
+      100% {
+        background: url(pglow.png);
+        background-repeat: no-repeat;
+        background-size: contain;
+        filter: brightness(1) hue-rotate(90deg);
+        transform: scale(3);
+        opacity: 0;
+      }
+    }
+
+    .heartfirework {
+        animation: heartfirework 2s normal forwards linear;
+        animation-delay: 1s;
+        background: url(h.png);
+        background-repeat: no-repeat;
+        background-size: contain;
+        height:150px;
+        opacity: 0;
+        transform: scale(0.0);
+        width:150px;
+    }
+
+    .heartfireworkwithcolorchange {
+        animation: heartfireworkwithcolorchange 2s normal forwards linear;
+        animation-delay: 1s;
+        background: url(h.png);
+        background-repeat: no-repeat;
+        background-size: contain;
+        height:150px;
+        opacity: 0;
+        transform: scale(0.0);
+        width:150px;
+    }
+
+    .firework-rotator{
+        transform: rotateZ(45deg);
+    }
+
+     @keyframes heartfirework {
+        0% {
+        filter: brightness(0.5);
+        transform: scale(0.0);
+        opacity: 0;
+        }
+        25% {
+        opacity: 1;
+        }
+        40% {
+        filter: brightness(1.5);
+        transform: scale(1.8);
+        }
+        70% {
+        background: url(hglow.png);
+        background-repeat: no-repeat;
+        background-size: contain;
+        }
+        90% {
+        filter: brightness(1.5);
+        opacity: 1;
+        }
+        100% {
+        background: url(hglow.png);
+        background-repeat: no-repeat;
+        background-size: contain;
+        filter: brightness(1);
+        transform: scale(3);
+        opacity: 0;
+        }
+      }
+      @keyframes heartfireworkwithcolorchange {
+          0% {
+            filter: brightness(0.5) hue-rotate(0deg);
+            transform: scale(0.0);
+            opacity: 0;
+          }
+          25% {
+            opacity: 1;
+          }
+          40% {
+            filter: brightness(1.5) hue-rotate(0deg);
+            transform: scale(1.8);
+          }
+          70% {
+            background: url(hglow.png);
+            background-repeat: no-repeat;
+            background-size: contain;
+          }
+          90% {
+            filter: brightness(1.5) hue-rotate(90deg);
+            opacity: 1;
+          }
+          100% {
+            background: url(hglow.png);
+            background-repeat: no-repeat;
+            background-size: contain;
+            filter: brightness(1) hue-rotate(90deg);
+            transform: scale(3);
+            opacity: 0;
+          }
+        }
+
+    .nefirework {
+        animation: nefirework 2s normal forwards linear;
+        animation-delay: 1s;
+        background: url(ne.png);
+        background-repeat: no-repeat;
+        background-size: contain;
+        height:150px;
+        opacity: 0;
+        transform: scale(0.0);
+        width:150px;
+    }
+    @keyframes nefirework {
+        0% {
+        filter: brightness(0.5);
+        transform: scale(0.0);
+        opacity: 0;
+        }
+        25% {
+        opacity: 1;
+        }
+        40% {
+        filter: brightness(1.5);
+        transform: scale(1.8);
+        }
+        90% {
+        filter: brightness(1.5);
+        opacity: 1;
+        }
+        100% {
+        filter: brightness(1);
+        transform: scale(3);
+        opacity: 0;
+        }
+      }
+
+    .pofirework {
+        animation: nefirework 2s normal forwards linear;
+        animation-delay: 1s;
+        background: url(po.png);
+        background-repeat: no-repeat;
+        background-size: contain;
+        height:150px;
+        opacity: 0;
+        transform: scale(0.0);
+        width:150px;
+    }
+    @keyframes pofirework {
+        0% {
+        filter: brightness(0.5);
+        transform: scale(0.0);
+        opacity: 0;
+        }
+        25% {
+        opacity: 1;
+        }
+        40% {
+        filter: brightness(1.5);
+        transform: scale(1.8);
+        }
+        90% {
+        filter: brightness(1.5);
+        opacity: 1;
+        }
+        100% {
+        filter: brightness(1);
+        transform: scale(3);
+        opacity: 0;
+        }
+      }
+      .rafirework {
+        animation: nefirework 2s normal forwards linear;
+        animation-delay: 1s;
+        background: url(ra.png);
+        background-repeat: no-repeat;
+        background-size: contain;
+        height:150px;
+        opacity: 0;
+        transform: scale(0.0);
+        width:150px;
+    }
+    @keyframes rafirework {
+        0% {
+        filter: brightness(0.5);
+        transform: scale(0.0);
+        opacity: 0;
+        }
+        25% {
+        opacity: 1;
+        }
+        40% {
+        filter: brightness(1.5);
+        transform: scale(1.8);
+        }
+        90% {
+        filter: brightness(1.5);
+        opacity: 1;
+        }
+        100% {
+        filter: brightness(1);
+        transform: scale(3);
+        opacity: 0;
+        }
+      }
+      .bofirework {
+        animation: nefirework 2s normal forwards linear;
+        animation-delay: 1s;
+        background: url(bo.png);
+        background-repeat: no-repeat;
+        background-size: contain;
+        height:150px;
+        opacity: 0;
+        transform: scale(0.0);
+        width:150px;
+    }
+    @keyframes bofirework {
+        0% {
+        filter: brightness(0.5);
+        transform: scale(0.0);
+        opacity: 0;
+        }
+        25% {
+        opacity: 1;
+        }
+        40% {
+        filter: brightness(1.5);
+        transform: scale(1.8);
+        }
+        90% {
+        filter: brightness(1.5);
+        opacity: 1;
+        }
+        100% {
+        filter: brightness(1);
+        transform: scale(3);
+        opacity: 0;
+        }
+      }
+/*--------------BUTTONS---------------*/
+.button-container {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    left: 10px;
+    position: absolute;
+    transform-origin: top;
+    top: 10px;
+    z-index: 1;
+}
+
+.button-container > *{
+    margin-bottom: 8px;
+    text-decoration: none;
+}
+
+.button-container > a {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+}
+
+.button-container > a > div {
+    background-color: rgba(0,0,0,0.5);
+    border-radius: 5px;
+    color: white;
+    padding:8px;
+    position: absolute;
+    left: 70px;
+}
+.button-container > a > div::before {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    display: inline-block;
+    border: 10px solid transparent;
+    border-right-color:rgba(0,0,0,0.5);
+    left:-20px;
+}
+
+.btn {
+    border: 2px outset #66cdaa;
+    border-radius: 10px;
+    background-color: #fff;
+    color: #66cdaa;
+    cursor: pointer;
+    font-family: arial;
+    font-weight: 600;
+    height: 40px;
+    width: 76px;
+}
+
+.btn:active {
+    border: 2px solid #6699aa;
+    background-color: #eee;
+    color: #6699aa;
+}
+
+.close-button {
+    background: rgb(255,120,160);
+    border: 2px outset gold;
+    border-radius: 1rem;
+    color: rgb(130,0,0);
+    cursor: pointer;
+    height:40px;
+    position: fixed;
+    font-family: arial;
+    font-size: 2.1rem;
+    right: 20px;
+    top: 30px;
+    text-align: center;
+    width: 48px;
+    vertical-align: center;
+    z-index: 999999;
+}
+
+.close-button:active {
+    border-color: goldenrod;
+    border-style: solid;
+}
+
+.text-btn {
+    background-color: cyan;
+    border: 2px solid teal;
+    border-radius: 10px;
+    color: teal;
+    cursor: pointer;
+    font-size: 1.2rem;
+    height: 48px;
+    width: 60px;
+}
+
+.icon-btn {
+    border: none;
+    background: transparent;
+}
+
+.btn:active, .close-button:active {
+    transform: translateY(1px);
+}
+
+.btn-icon {
+    cursor: pointer;
+    max-width: 56px;
+}
+
+.text-btn:hover,
+.btn-icon:hover {
+    color: black;
+    filter:brightness(1.5);
+}
+
+.icon-btn:disabled .btn-icon,
+.text-btn:active,
+.btn-icon:active {
+    filter:brightness(0.75);
+}
+
+.text-btn:active,
+.btn-icon:active {
+    transform: translateY(2px);
+}
+
+.icon-btn + div {
+    display: none;
+}
+
+.icon-btn:disabled:hover + div {
+    display: block;
+}
+
+/*--------------MESSAGES---------------*/
+body:not(.showMessages) #messages-popup {
+    display: none;
+}
+
+.popup {
+    background: rgba(0,0,0,0.8);
+    border: 1px solid gold;
+    border-radius: 20px;
+    box-sizing: border-box;
+    padding: 5%;
+    position: absolute;
+    user-select: none;
+    width:100%;
+    z-index: 2;
+}
+
+.postcard, .picturecard {
+    box-shadow: 5px 8px 20px -5px rgba(10, 10, 10, 0.75);
+    background-color: white;
+    break-inside: avoid;
+    color: rgb(20,20,20);
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    margin-bottom: 3.7rem;
+    padding: 20px 10px;
+}
+
+.profile-pic {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+
+.messages p {
+    white-space: pre-wrap;
+}
+
+.messages > div {
+    margin-block-start: 1rem;
+    margin-block-end: 1rem;
+    margin-inline-start: 1rem;
+    margin-inline-end: 1rem;
+}
+
+.messages p {
+    font-family: 'Noto Serif JP';
+    font-size: 1rem;
+}
+
+.messages > div + div[lang="ja"] {
+    border-top: 2px solid rgba(0,0,0,0.3);
+}
+
+.postcard-header, .picturecard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.picturecard {
+    cursor: pointer;
+    position: relative;
+}
+.picturecard-header {
+    background: rgb(255,255,255);
+    background: linear-gradient(0deg, rgba(255,255,255,0) 0%, rgba(47,47,47,0.75) 31%, rgba(48,48,48,0.75) 100%);
+    color: white;
+    padding-bottom: 15px;
+    position: absolute;
+    width:calc(100% - 20px);
+}
+
+.picturecard img {
+    width:100%;
+}
+
+.user-info {
+    align-items: center;
+    display: flex;
+    flex: 1;
+    flex-wrap: wrap;
+    margin-left: 1rem;
+    max-width: calc(100% - 1rem);
+}
+
+.user-name {
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-right: 0.3rem;
+    text-overflow: ellipsis;
+}
+
+.user-twitter {
+    color: #194368;
+    font-size: 0.9rem;
+    font-style: italic;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.country-name {
+    bottom: -12px;
+    color: rgba(30,30,30,.7);
+    font-family: cursive;
+    font-size: 0.7rem;
+    font-weight: 900;
+    height: 30px;
+    margin-left: 4px;
+    position: absolute;
+    z-index: 9999;
+}
+
+.flag-icon {
+    font-size: 2rem;
+    margin: 4px;
+    box-shadow: 0 0 3px rgb(100 100 100);
+}
+
+.msg-art {
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+}
+
+#ne, #po, #ra, #bo {
+    pointer-events: none;
+}
+
+@media (min-width: 450px) {
+    section.postcards {
+        column-count: 1;
+    }
+}
+
+/* medium */
+@media (min-width: 750px) {
+    section.postcards {
+        column-count: 2;
+    }
+    .messages p {
+        font-family: 'Noto Serif JP';
+        font-size: 1.15rem;
+    }
+    .user-name {
+        font-size: 1.25rem;
+    }
+    .user-twitter {
+        font-size: 0.95rem;
+    }
+}
+
+@media (min-width: 1200px) {
+    section.postcards {
+         column-count: 3;
+     }
+     .messages p {
+         font-family: 'Noto Serif JP';
+         font-size: 1.25rem;
+     }
+     .user-name {
+         font-size: 1.5rem;
+     }
+     .user-twitter {
+         font-size: 1rem;
+     }
+ }
+
+
+ @media (min-width: 2000px) {
+    section.postcards {
+         column-count: 4;
+     }
+ }
+
+ @media (min-width: 2800px) {
+    section.postcards {
+         column-count: 5;
+     }
+ }
+
+ @media (max-width: 400px) {
+    .button-container {
+        transform: scale(0.8);
+        left: 0;
+        top:0;
+    }
+ }
+
+ @media (max-width: 600px) {
+    .firework {
+        height:100px;
+        width:100px;
+    }
+
+    .fireworkwithcolorchange {
+        height:90px;
+        width:90px;
+    }
+    .heartfirework {
+        height:100px;
+        width:100px;
+    }
+    .heartfireworkwithcolorchange {
+        height:90px;
+        width:90px;
+    }
+    .nefirework {
+        height:100px;
+        width:100px;
+    }
+
+    .pofirework {
+        height:100px;
+        width:100px;
+    }
+
+    .rafirework {
+        height:100px;
+        width:100px;
+    }
+
+    .bofirework {
+        height:100px;
+        width:100px;
+    }
+
+    .sparkle,
+    .sparkle1,
+    .sparkle2 {
+        height:20px;
+        width:20px;
+    }
+ }

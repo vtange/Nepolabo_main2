@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <!--must be as high as possible in html. governs how IE handles page. edge means treat with latest tech. chrome means use GoogleChromeFrame (discont. 2014)
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />-->
+    <!--defines mobile viewport. width&initial-scale are standard, shrink-to-fit is for iOS Safari-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!--Twitter mobile <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0">-->
+    <meta name="description" content="BAR雪花へようこそ！雪花ラミィのための色々な企画を目的として制作されたファンサイトです">
+    <meta name="keywords" content="lamy, yukihana,ラミィ,雪花,bar, daifuku, 3d, html5, javascript, babylonjs, react">
+    <meta name="author" content="vtange">
+    <!--<meta name="google-site-verification" content="..." />-->
+    <!--<meta name="language" content="ES">-->
+
+    <!--Open Graph (Facebook's linking system)-->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.yukihana.bar/">
+    <meta property="og:site_name" content="BAR雪花 - ファンサイト">
+    <meta property="og:image" itemprop="image primaryImageOfPage" content="https://gracious-lewin-ed0bc0.netlify.app/default.jpg">
+
+    <!--Twitter's linking system-->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:domain" content="yukihana.bar">
+    <meta name="twitter:title" property="og:title" itemprop="name" content="BAR雪花 - ファンサイト">
+    <meta name="twitter:description" property="og:description" itemprop="description" content="BAR雪花へようこそ！雪花ラミィのための色々な企画を目的として制作されたファンサイトです">
+
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <!--Offical PWA manifest-->
+    <!--<link rel="manifest" href="/manifest.json">-->
+    <!--for Android, controls color of top bar (with battery/wifi icons)-->
+    <meta name="theme-color" content="#7a95a6" />
+    <!--Apple PWA Icon is treated separate from official PWA manifest above-->
+    <link rel="apple-touch-icon" href="touch-icon-iphone.png"><!--72x72-->
+    <link rel="apple-touch-icon" sizes="152x152" href="touch-icon-ipad.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="touch-icon-iphone-retina.png">
+    <link rel="apple-touch-icon" sizes="167x167" href="touch-icon-ipad-retina.png">
+    <!--Apple splash image-->
+    <link href="/apple_splash_2048.png" sizes="2048x2732" rel="apple-touch-startup-image" />
+    <link href="/apple_splash_1668.png" sizes="1668x2224" rel="apple-touch-startup-image" />
+    <link href="/apple_splash_1536.png" sizes="1536x2048" rel="apple-touch-startup-image" />
+    <link href="/apple_splash_1125.png" sizes="1125x2436" rel="apple-touch-startup-image" />
+    <link href="/apple_splash_1242.png" sizes="1242x2208" rel="apple-touch-startup-image" />
+    <link href="/apple_splash_750.png" sizes="750x1334" rel="apple-touch-startup-image" />
+    <link href="/apple_splash_640.png" sizes="640x1136" rel="apple-touch-startup-image" />
+    <!--Apple: treat like native app if yes-->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="Bar Yukihana">
+    <title>BAR雪花 - ファンサイト</title>
+    <link rel="prefetch" href="/shaders/mtoon.vertex.fx" as="fetch">
+    <link rel="prefetch" href="/shaders/mtoon.fragment.fx" as="fetch">
+    <link rel="prefetch" href="/shaders/ShadersInclude/mtoonVertexDeclaration.fx" as="fetch">
+    <link rel="prefetch" href="/shaders/ShadersInclude/mtoonFragmentDeclaration.fx" as="fetch">
+    <link rel="prefetch" href="/shaders/ShadersInclude/mtoonLightFragment.fx" as="fetch">
+    <link rel="prefetch" href="/shaders/ShadersInclude/mtoonUboDeclaration.fx" as="fetch">
+    <link rel="prefetch" href="/shaders/ShadersInclude/mtoonBumpFragment.fx" as="fetch">
+    <link rel="preconnect" href="https://nepolabo.fans/" />
+    <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP&display=swap"
+    rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css"
+        integrity="sha512-Cv93isQdFwaKBV+Z4X8kaVBYWHST58Xb/jVOcV9aRsGSArZsgAnFIhMpDoMDcFNoUtday1hdjn0nGp3+KZyyFw=="
+        crossorigin="anonymous" />
+    <link rel="stylesheet" href="index.css">
+  </head>
+  <body>
+    <div id="ie11-cover"><p>Please use a different web browser to see this site.</p><p>このサイトを見るために他のウェブブラウザーを使ってください。</p></div>
+    <div id="nojs-cover"><p>Please turn on Javascript to fully access this site's features.</p><p>このサイトの全ての機能を利用するためにはJavaScriptを有効にする必要があります。</p></div>
+    <div id="app"></div>
+    <script src="./hashes.js"></script>
+    <script src="./presw.js"></script>
+    <script src="https://www.youtube.com/iframe_api"></script>
+  </body>
+</html>

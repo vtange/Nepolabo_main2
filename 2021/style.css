@@ -1,0 +1,49 @@
+/* *, *:before, *:after {
+    box-sizing: border-box;
+} */
+
+body {
+    background-color: lightblue;
+    /* color: white; */
+}
+
+.o-body-wrapper {
+    display: flex;
+    flex-direction: column-reverse;
+    width: 100%;
+    padding: 2em;
+}
+
+/* main {
+    max-width: 1140px;
+} */
+
+.c-splash-image {
+    width: 100%;
+    margin-bottom: 1em;
+    display: block;
+}
+
+.c-splash-content {
+    background-color: #1a1d44;
+    width: 100%;
+    padding: 1em;
+}
+
+aside {
+    background-color: #1a1d44;
+    padding: 1em;
+    margin-bottom: 1em;
+}
+
+@media (min-width: 1000px) {
+    .o-body-wrapper {
+        display: grid;
+        grid-template-columns: 1fr minmax(35ch, 30%);
+        grid-gap: 1em;
+    }
+
+    aside {
+        margin-bottom: 0;
+    }
+}

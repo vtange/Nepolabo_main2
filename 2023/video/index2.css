@@ -1,0 +1,83 @@
+body {
+    background: rgb(94,196,210);
+    background: linear-gradient(59deg, rgba(94,196,210,1) 0%, rgba(193,184,255,1) 19%, rgba(228,191,252,1) 38%, rgba(239,208,248,1) 58%, rgba(241,186,217,1) 82%, rgba(238,219,175,1) 100%);
+    font-size: 2.5rem;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 700;
+    min-height: 100vh;
+}
+
+.btn-icon {
+    cursor: pointer;
+    max-width: 56px;
+}
+
+.btn-icon:hover {
+    filter: brightness(1.5);
+}
+
+.icon-btn:disabled .btn-icon,
+.text-btn:active,
+.btn-icon:active {
+    filter: brightness(0.75);
+}
+
+.text-btn:active,
+.btn-icon:active {
+    transform: translateY(2px);
+}
+
+#video-container {
+    background-color: rgba(0,0,0,0.39);
+    border-radius: 12px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    font-size: small;
+    text-align: center;
+    max-width: 1280px;
+    position: relative;
+    left: 0;
+    right: 0;
+    margin: auto;
+    margin-top: 5vh;
+    padding: 8px;
+}
+
+#video-container p {
+    font-size: 16px;
+    margin: 2px;
+}
+
+#video-container p:last-of-type {
+    margin-bottom: 12px;
+}
+
+.video-container {
+    background-color: black;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* smallest */
+@media (max-width: 450px) {
+    body {
+        font-size: 1rem;
+    }
+    #video-container {
+        font-size: 10px;
+        margin-top: 5vh;
+        padding: 8px;
+    }
+}

@@ -1,0 +1,108 @@
+body {
+    background: rgb(141, 144, 197);
+    color: white;
+    overflow: hidden;
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+.bg {
+    background-image: url(./barykhn.jpg);
+    background-position: 24%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 25px;
+    box-shadow: 0 0 8px 8px rgb(141, 144, 197) inset;
+    color: white;
+    display: flex;
+    height: 60vw;
+    flex-flow: row wrap;
+    justify-content: center;
+    margin: auto;
+    margin-bottom: 5rem;
+    margin-top: 3rem;
+    max-height: 90vh;
+    min-height: 80vh;
+    max-width: 800px;
+    position: relative;
+}
+
+#ie11-cover {
+    background-color: aliceblue;
+    transform: scale(0);
+    -ms-transform: scale(1);
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: 99;
+}
+
+#nojs-cover {
+    animation: slowShow 0.5s normal forwards ease-in-out;
+    animation-delay: 2s;
+    background-color: rgb(253, 213, 220);
+    border: 2px solid pink;
+    border-radius: 10px;
+    color: black;
+    padding: 5px;
+    position: absolute;
+    left: 50%;
+    opacity:0;
+    top: 2rem;
+    transform: translatex(-50%);
+    z-index: 99;
+}
+
+@keyframes slowShow {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+#init-wht-bg {
+    background-color: white;
+    height: 100vh;
+    left: 0;
+    margin: 0;
+    pointer-events: none;
+    position: absolute;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    top: 0;
+    width: 100vw;
+    z-index: 5; /*#app is 99*/
+}
+
+#start-btn {
+    border: 2px solid palegoldenrod;
+    border-radius: 10px;
+    background-color: rgba(30,30,30,0.8);
+    bottom: 36px;
+    box-shadow: 3px 3px 5px rgb(0 0 0 / 25%);
+    color: palegoldenrod;
+    cursor: pointer;
+    font-family: arial;
+    font-size: 1.5rem;
+    font-weight: 600;
+    height: 80px;
+    position: absolute;
+    user-select: none;
+    width: 160px;
+}
+
+#start-btn:hover {
+    background-color: rgba(60,60,60,0.8)
+}
+#start-btn:active {
+    box-shadow: 1px 1px 3px rgb(0 0 0 / 25%);
+    transform: scale(0.99);
+}
+
+@media (min-width: 800px) {
+}

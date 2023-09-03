@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ねぽらぼ二周年記念プロジェクト NePoLaBo 2nd Anniversary Celebration Project</title>
+    <meta name="description" content="ねぽらぼのみんな、二周年おめでとう！！">
+
+    <meta property="og:title" content="ねぽらぼ二周年記念プロジェクト NePoLaBo 2nd Anniversary Celebration Project" />
+    <meta property="og:site_name" content="ねぽらぼ二周年記念プロジェクト">
+    <meta property="og:description" content="ねぽらぼのみんな、二周年おめでとう！！！！！" />
+    <meta property="og:image" itemprop="image primaryImageOfPage" content="https://eager-easley-076a0e.netlify.app/twitter_lrg.jpg">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://nepolabo.fans/2022">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:domain" content="nepolabo.fans">
+    <meta name="twitter:title" content="ねぽらぼ二周年記念プロジェクト NePoLaBo 2nd Anniversary Celebration Project">
+    <meta name="twitter:description" property="og:description" itemprop="description" content="ねぽらぼ二周年おめでとう！">
+    <meta name="twitter:image" content="https://eager-easley-076a0e.netlify.app/twitter_lrg.jpg">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="mstile-150x150.jpg">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.jpg">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.jpg">
+    <link rel="manifest" href="site.webmanifest">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simplelightbox/2.7.0/simple-lightbox.min.css"
+        integrity="sha512-FHwwMXxhAWjVhJyEgmmPg/aJ3BRmsOavHBV6yMK55Mz0rycBZcRmSowqij+ncd/JPtOzmUMZx7ZIRnGyqIE/1A=="
+        crossorigin="anonymous" />
+    <link rel="stylesheet" href="src/index.css">
+<body data-swaplang="JP">
+    <div id="ie11-cover"><p>Please use a different web browser to see this site.</p><p>このサイトを見るために他のウェブブラウザーを使ってください。</p></div>
+    <div id="nojs-cover"><p>Please turn on Javascript to fully access this site's features.</p><p>このサイトの全ての機能を利用するためにはJavaScriptを有効にする必要があります。</p></div>
+    <div id="content">
+        <div id="tutorial"><span data-swaplang="EN">Click to launch fireworks</span><span data-swaplang="JP">クリックすると花火を打ち上げます</span></div>
+        <div class="button-container">'
+            <a href="../"><img class="btn-icon" src="src/back.png"/></a>
+            <button class="icon-btn" onclick="toggleMessagesPopup(true)"><img class="btn-icon" src="src/letter.png"/></button>
+            <button class="icon-btn" onclick="toggleCreditsPopup(true)"><img class="btn-icon" src="src/feather.png"/></button>
+            <a href="./nene"><button disabled class="icon-btn" onclick=""><img class="btn-icon" src="src/nekko.png"/></button>
+                <div id="ne">08:13:21</div></a>
+            <a href="./polka"><button disabled class="icon-btn" onclick=""><img class="btn-icon" src="src/zain.png"/></button>
+                <div id="po">08:16:21</div></a>
+            <a href="./lamy/index.html"><button disabled class="icon-btn" onclick=""><img class="btn-icon" src="src/yukimin.png"/></button>
+                <div id="ra">08:12:21</div></a>
+            <a href="./botan/index.html"><button disabled class="icon-btn" onclick=""><img class="btn-icon" src="src/ssrb.png"/></button>
+                <div id="bo">08:14:21</div></a>
+            <button id="lang-btn" class="text-btn" onclick="toggleLanguage()">JP</button>
+        </div>
+
+        <div class="FULLSCRN" id="sky">
+            <span id="picnic"></span>
+            <span id="picnictint"></span>
+            <!--example of one firework unit. you generate this with clicks or loop
+            <div class="firework-red">
+                <div class="firework"></div>
+                <div class="uchiage">
+                    <div class="sparkle"></div>
+                    <div class="sparkle1"></div>
+                    <div class="sparkle2"></div>
+                </div>
+            </div>-->
+        </div>
+
+        <div class="popup" id="messages-popup">
+            <div class="close-button" onclick="toggleMessagesPopup(false)">×</div>
+            <div id="cards"></div>
+        </div>
+
+        <section class="popup" id="credits-popup">
+            <div class="close-button" onclick="toggleCreditsPopup(false)">×</div>
+            <div class="credits">
+                <h1><span data-swaplang="EN">Credits</span><span data-swaplang="JP">クレジット</span></h1>
+                <div>
+                    <h4><span data-swaplang="EN">Organizers</span><span data-swaplang="JP">企画</span></h4>
+                    <div class="maybe-columns">
+                        <span>vtange</span>
+                        <p>X-Kill/Mau</p>
+                        <p>Timekiller_74</p>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="cred-en"><span data-swaplang="EN">Website</span><span data-swaplang="JP">ウェブサイト</span></h4>
+                    <div class="maybe-columns">
+                        <span>vtange</span>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="cred-en"><span data-swaplang="EN">NPLB Art</span><span data-swaplang="JP">ねぽらぼイラスト</span></h4>
+                    <div class="maybe-columns">
+                        <span>Forever9Nine</span>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="cred-en"><span data-swaplang="EN">Other Graphics</span><span data-swaplang="JP">他のグラフィック</span></h4>
+                    <div class="maybe-columns">
+                        <span>フリー素材ぱくたそ（www.pakutaso.com）</span>
+                        <p>Pixiv - ヨシュケイ</p>
+                        <p>Pixiv - 素材屋みみみ</p>
+                        <p>vtange</p>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="cred-en"><span data-swaplang="EN">Translator</span><span data-swaplang="JP">翻訳</span></h4>
+                    <div class="maybe-columns">
+                        <span>vtange</span>
+                        <p>Ralf0206</p>
+                        <p>Vanilla Thunder</p>
+                        <p>Vee</p>
+                        <p>Niels M H</p>
+                        <p>heyric</p>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="cred-en"><span data-swaplang="EN">Website QC</span><span data-swaplang="JP">ウェブサイトQC</span></h4>
+                    <div class="maybe-columns">
+                        <span>Fish-Flavored Water</span>
+                        <p>heyric</p>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="cred-en"><span data-swaplang="EN">Special Thanks</span><span data-swaplang="JP">スペシャルサンクス</span></h4>
+                    <div class="maybe-columns">
+                        <span data-swaplang="EN">To everyone who supports this project</span><span data-swaplang="JP">当企画を応援している皆様</span>
+                    </div>
+                </div>
+            </div>
+            <div id="disclaimer">
+                <p><span data-swaplang="EN">This is a fan project. We do not have any affiliation with Cover Corporation. It is strictly non-profit. Any unauthorized use of artwork or material in this site is strictly forbidden.</span></p>
+                <p><span data-swaplang="JP">この本はファンによる企画です。カバー株式会社とは一切関係なく、完全に非営利目的です。このサイトに掲載されているイラストや素材を無断で使用する事を固く禁じます。</span></p>
+            </div>
+        </section>
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/idb-keyval@3/dist/idb-keyval-iife.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/simplelightbox/2.7.0/simple-lightbox.min.js"
+        integrity="sha512-ZajFBgnksNp8Rj+AbmYe8ueOu45HiSjtf3QpqnRbHlq719m6VK0FkbYIqQ8wEnlVuJ1i9pC+z6Z9ewmDnUTMCg=="
+        crossorigin="anonymous" type="application/javascript"></script>
+    <script src="src/mithril.js" type="application/javascript"></script>
+    <script src="src/data.js" type="application/javascript"></script>
+    <script src="src/index.js" type="application/javascript"></script>
+</body>
+
+</html>

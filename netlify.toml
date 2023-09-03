@@ -1,0 +1,84 @@
+[[redirects]]
+from = "/bar-yukihana"
+to = "/_bar-yukihana"
+status = 301
+
+[[redirects]]
+from = "/bar-yukihana/:file"
+to = "/_bar-yukihana/:file"
+status = 301
+
+[[redirects]]
+from = "/nene"
+to = "/2021/nene"
+status = 301
+
+[[redirects]]
+from = "/polka"
+to = "/2021/polka"
+status = 301
+
+[[redirects]]
+from = "/lamy"
+to = "/2021/lamy"
+status = 301
+
+[[redirects]]
+from = "/botan"
+to = "/2021/botan"
+status = 301
+
+[[redirects]]
+from = "/nene/:file"
+to = "/2021/nene/:file"
+status = 301
+
+[[redirects]]
+from = "/polka/:file"
+to = "/2021/polka/:file"
+status = 301
+
+[[redirects]]
+from = "/lamy/:file"
+to = "/2021/lamy/:file"
+status = 301
+
+[[redirects]]
+from = "/botan/:file"
+to = "/2021/botan/:file"
+status = 301
+
+[[redirects]]
+from = "/2021/polka/*"
+to = "/2021/polka/index.html"
+status = 200
+
+[[redirects]]
+from = "/2021/botan/*"
+to = "/2021/botan/index.html"
+status = 200
+
+[[redirects]]
+from = "/2022/nene/*"
+to = "/2022/nene/index.html"
+status = 200
+
+[[redirects]]
+from = "/2022/polka/*"
+to = "/2022/polka/index.html"
+status = 200
+
+[[redirects]]
+from = "/2022/botan/*"
+to = "/2022/botan/index.html"
+status = 200
+
+[[redirects]]
+from = "/2023/polka/*"
+to = "/2023/polka/index.html"
+status = 200
+
+[[redirects]]
+from = "/2023/botan/*"
+to = "/2023/botan/index.html"
+status = 200

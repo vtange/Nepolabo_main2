@@ -1,0 +1,59 @@
+body {
+    background: white;
+    color: white;
+    overflow: hidden;
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+#ie11-cover {
+    background-color: aliceblue;
+    transform: scale(0);
+    -ms-transform: scale(1);
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: 99;
+}
+
+#nojs-cover {
+    animation: slowShow 0.5s normal forwards ease-in-out;
+    animation-delay: 2s;
+    background-color: rgb(253, 213, 220);
+    border: 2px solid pink;
+    border-radius: 10px;
+    color: black;
+    padding: 5px;
+    position: absolute;
+    left: 50%;
+    opacity:0;
+    top: 2rem;
+    transform: translatex(-50%);
+    z-index: 99;
+}
+.back-link {
+    position: absolute;
+    margin: 10px;
+    z-index: 100;
+}
+
+.btn-icon {
+    cursor: pointer;
+    max-width: 56px;
+}
+
+.btn-icon:hover {
+    filter:brightness(1.5);
+}
+
+.icon-btn:disabled .btn-icon,
+.btn-icon:active {
+    filter:brightness(0.75);
+}
+
+.btn-icon:active {
+    transform: translateY(2px);
+}
