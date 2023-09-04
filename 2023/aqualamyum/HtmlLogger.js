@@ -1,41 +1,89 @@
 //always available. This is used in prod to catch errors. If dev mode, the more powerful dev logger
 //is used as the error catcher in block for NoScript check
 function HtmlLogger() {
-    this.LI_PAD = "3px";
-    this.LI_BORD = "1px solid #777";
+    this.open = true;
 
-    var div = document.createElement("div");
+    var div = this.div = document.createElement("div");
     div.style.position = "fixed";
     div.style.top = 0;
     div.style.left = 0;
-    div.style.height = "100vh";
+    div.style.minHeight = "100vh";
+    div.style.overflow = "visible";
     div.style.width = "calc(100vw - 40px)";
     div.style.maxWidth = "360px";
-    div.style.minWidth = "250px";
     div.style.color = "white";
     div.style.zIndex = 999;
     div.style.fontFamily = "monospace, Arial, sans-serif";
     div.style.backgroundColor = "rgba(30,30,50,0.95)";
-    var ol = document.createElement("ol");
-    ol.style.overflowY = "scroll";
-    ol.style.height = "100%";
-    div.appendChild(ol);
-    this.ol = ol;
 
-    //button for toggling visibility of game (app)
+    //button for toggling visibility of background app.
     var toggle_btn = document.createElement("button");
     toggle_btn.id = "consolToggle";
-    toggle_btn.textContent = ">";
-    toggle_btn.setAttribute("style","height: 100px; width: 40px; padding: 10px 5px; position:absolute; top: 20%; right:0; transform:translateX(100%);");
-    toggle_btn.addEventListener("click", function(){
-        div.style.transform = div.style.transform ? "" : "translateX(-"+div.offsetWidth+"px)";
-    });
+    toggle_btn.textContent = "Toggle ----->";
+    toggle_btn.setAttribute("style","height: 80px; width: calc(100% + 40px); font-size: 30px; text-align: right;");
+    toggle_btn.addEventListener("click", this.toggle.bind(this));
     div.appendChild(toggle_btn);
+
+    var list = document.createElement("ul");
+    list.style.overflowY = "scroll";
+    list.style.position = "absolute";
+    list.style.height = "100%";
+    list.style.width = "calc(100% - 30px)";
+    list.style.paddingInlineStart = "30px";
+    div.appendChild(list);
+    this.list = list;
+
+    //controls hide/unhide of arrays and objects logged in HTML
+    this.list.addEventListener("click",function(e){
+        if(e.target && e.target.tagName === "BUTTON" && !e.target.id && e.target.nextElementSibling)
+        {
+            //show object
+            e.target.nextElementSibling.style.display = e.target.nextElementSibling.style.display === "" ? "none" : "";
+        }
+    });
+
+    var style = document.createElement('style');
+    style.innerHTML = `.htmlLoggerLiEntry { border-top:1px solid #777; padding-top: 3px; }
+    .htmlLoggerLiEntry.htmlLoggerWarningEntry { background-color:rgb(159, 90, 0); }
+    .htmlLoggerLiEntry.htmlLoggerErrorEntry{ background-color:rgb(119, 0, 0); }
+    .htmlLoggerSpanEntry{margin-left:3px;overflow-wrap: anywhere;}
+    .htmlLoggerLiEntry:last-child{ padding-bottom:50vh; }
+    .htmlLoggerLiEntry ul, .htmlLoggerLiEntry ol { padding-inline-start: 20px;}
+    .htmlLoggerExpandrBtn{cursor:pointer;}`;
+    document.getElementsByTagName('head')[0].appendChild(style);
+
     // Delay by 100 due to Browsersync working with document.body at init (body doesn't exist for a bit)
     window.setTimeout(function(){
         document.body.appendChild(div);
     },100);
 
+    this.overrideConsoleLog();
+}
+
+HtmlLogger.prototype.toggle = function(){
+    if(!this.div.offsetWidth) {
+        window.setTimeout(this.toggle.bind(this),100);
+    } else {
+        this.div.style.transform = this.div.style.transform ? "" : "translateX(-"+this.div.offsetWidth+"px)";
+        this.open = !!this.div.style.transform.length;
+    }
+}
+
+HtmlLogger.prototype.overrideConsoleLog = function(){
+    //add HTML console.log and console.warn, console.error
+    var conslog = console.log, consinfo = console.info, conswarn = console.warn, conserr = console.error;
+    var _this = this;
+    var htmlConsoleWrapper = function(originalConsoleFn, iSeverity){
+        return function(){
+           _this.populateLiEntry(_this.addNewBlankLi(iSeverity),arguments);
+            originalConsoleFn.apply(this, arguments);
+        };
+    }
+
+    console.info = htmlConsoleWrapper(consinfo);
+    console.log = htmlConsoleWrapper(conslog);
+    console.warn = htmlConsoleWrapper(conswarn, 1);
+    console.error = htmlConsoleWrapper(conserr, 2);
     //these error catchers cannot be triggered manually in chrome console.
     //these can only be triggered by written-in-code errors such as:
     //throw "blah";
@@ -43,145 +91,119 @@ function HtmlLogger() {
     //^ include stack trace
     //onerror is legacy for older browsers
     //addeventlistener is modern best practice.
-    var lggr = this;
+    // SyntaxErrors cannot be caught. the most you can do is Script error.
     window.onerror = function(event, source, lineno, colno, e) {
-        lggr.errorEntry.call(null,e);
+        console.error("window.onerror:",event,source," Line:",lineno," Col:",colno);
     }
     window.addEventListener("error", function(e){
-        lggr.errorEntry.call(null,e);
+        console.error("window error event:",e.message," Line:",e.lineno," Col:",e.colno);
     });
-    this.overrideConsoleLog();
-}
+};
 
-HtmlLogger.prototype.errorEntry = function(errOrStr){
-    //window.onerror : e.message
-    //addeventlistener "error" : e.error.message || e.message
-    var new_li = document.createElement("li");//convert to ordered list (ol , li ) for auto numbering
-    var msg = typeof errOrStr === 'string' ? errOrStr : (errOrStr.stack ? errOrStr.stack : errOrStr.message ? errOrStr.message : JSON.stringify(errOrStr));
-    new_li.textContent = msg;
-    new_li.style.paddingTop = this.LI_PAD;
-    new_li.style.borderTop = this.LI_BORD;
-    this.ol.appendChild(new_li);
+HtmlLogger.prototype.addNewBlankLi = function(iSeverity){
+    var new_li = document.createElement("li");
+    new_li.className = 'htmlLoggerLiEntry';
+    if(iSeverity === 1) {
+        new_li.classList.add("htmlLoggerWarningEntry");
+    }
+    else if(iSeverity === 2) {
+        new_li.classList.add("htmlLoggerErrorEntry");
+    }
+    this.list.appendChild(new_li);
     return new_li;
 };
 
-//BEYOND HERE is code prod doesn't really need as its used for testing.
-HtmlLogger.prototype.newLiEntry = function() {
-    var new_li = document.createElement("li"), color = -1;
-    //oar = Object or Array
-    var oar_btn = null; oar_list = null, oar_prop_li = null;//convert to ordered list (ol , li ) for auto numbering
-    new_li.textContent = "";
-    for(var j = 0; j < arguments.length; j++)
+HtmlLogger.prototype.populateLiEntry = function(new_li, arrArgs) {
+    var new_span;
+    for(var j = 0; j < arrArgs.length; j++)
     {
-        if(typeof arguments[j] === 'string') {
-            color = arguments[j].indexOf("%c");
-            if(color >= 0) {
-                new_li.textContent += arguments[j].slice(color+2);
-                new_li.setAttribute("style",arguments[j+1]);
-                //skip argument that just sets font color
-                j++;
-                color = -1;
-            } else {
-                new_li.textContent += arguments[j];
-            }
-        } else if (typeof arguments[j] === "number" || arguments[j] === null || arguments[j] === undefined) { //number || null || undefined
-            new_li.textContent += arguments[j];
-        } else if (typeof arguments[j] === "function") {
-            new_li.textContent += arguments[j].toString();
+        new_span = document.createElement("span");
+        new_span.className = 'htmlLoggerSpanEntry';
+        if(j === 0 && typeof arrArgs[j] === 'string' && arrArgs[j].indexOf("%c") >= 0) {
+            // only the first color should work and for the first string text. using "%c" again won't work; checked in actual Chrome.
+            // %cAAA, color:lime, %cBBB, color:black -> only AAA gets colored. the others are printed normally.
+            new_span.textContent += arrArgs[j].slice(2);
+            new_span.setAttribute("style",arrArgs[j+1]);
+            j++; // skip one index since it was the ^ style attributes
         } else {
-            //error objects / events
-            //window.onerror : e.message
-            //addeventlistener "error" : e.error.message || e.message
-            if(arguments[j].stack) {
-                new_li.textContent += arguments[j].stack;
-            } else if(arguments[j].message) {
-                new_li.textContent += arguments[j].message;
+            var objs_seen_before = new Set();
+            var logged_value = this.getLoggedValue(arrArgs[j], objs_seen_before);
+            this.appendLoggedValue(logged_value, new_span);
+        }
+        new_li.appendChild(new_span);
+    }
+    this.list.appendChild(new_li);
+    return new_li;
+}
+
+HtmlLogger.prototype.getObjName = function(value){
+    return value.constructor ? value.constructor.name : "Object";
+}
+
+HtmlLogger.prototype.getLoggedValue = function(value, objs_seen_before) {
+    if(typeof value === 'object'){
+        if(value === null) {
+            return "null";
+        } else {
+            let expandr_btn = document.createElement("button");
+            expandr_btn.className = 'htmlLoggerExpandrBtn';
+            if(objs_seen_before.has(value)) {
+                return "Circular ("+(Array.isArray(value)?"Array ["+ value.length +"]":this.getObjName(value))+")";
             } else {
-                oar_btn = document.createElement("button");
-                //regular object/array. loop through properties/indexes
-                oar_list = document.createElement("ul");
-                oar_list.style.display = "none";
-                oar_btn.style.cursor = "pointer";
-                if(Array.isArray(arguments[j])) {
-                    oar_btn.textContent = "Array ["+ arguments[j].length +"]";
-                    for(var i = 0; i < arguments[j].length; i++)
-                    {
-                        oar_prop_li = document.createElement("li");
-                        oar_prop_li.textContent = i.toString();
-                        oar_prop_li.textContent += ": " +  assertPrimitive(arguments[j][i]);
-                        oar_list.appendChild(oar_prop_li);
-                    }
-                } else if (typeof arguments[j] == "object" && arguments[j] != null) {
-                    oar_btn.textContent =  arguments[j].constructor.name;
-                    for(var prop in arguments[j])
-                    {
-                        if(prop === "constructor") continue;
-                        oar_prop_li = document.createElement("li");
-                        oar_prop_li.textContent = prop;
-                        oar_prop_li.textContent += ": " +  assertPrimitive(arguments[j][prop]);
-                        oar_list.appendChild(oar_prop_li);
+                objs_seen_before.add(value);
+            }
+            if(Array.isArray(value)) {
+                expandr_btn.textContent = "Array ["+ value.length +"]";
+                let expanded_list = document.createElement("ol");
+                expanded_list.style.display = "none";
+                for(var i = 0; i < value.length; i++)
+                {
+                    let arr_new_li = document.createElement("li");
+                    var logged_value = this.getLoggedValue(value[i], objs_seen_before);
+                    this.appendLoggedValue(logged_value,arr_new_li);
+                    expanded_list.appendChild(arr_new_li);
+                }
+                return [expandr_btn,expanded_list];
+            } else {
+                expandr_btn.textContent = this.getObjName(value);
+                let expanded_list = document.createElement("ul");
+                expanded_list.style.display = "none";
+                for(var prop in value)
+                {
+                    if (Object.prototype.hasOwnProperty.call(value, prop)) {
+                        let arr_new_li = document.createElement("li");
+                        var logged_value = this.getLoggedValue(value[prop], objs_seen_before);
+                        arr_new_li.textContent += prop +": ";
+                        this.appendLoggedValue(logged_value,arr_new_li);
+                        expanded_list.appendChild(arr_new_li);
                     }
                 }
-                new_li.appendChild(oar_btn);
-                new_li.appendChild(oar_list);
+                //Error objects have a .stack that don't count as a prop
+                if (value.stack) {
+                    expanded_list.textContent += value.stack;
+                }
+                return [expandr_btn,expanded_list];
             }
         }
+    } else if(typeof value === 'number' || typeof value === 'string') {
+        return value;
+    } else if(typeof value === 'undefined') {
+        return typeof value;
+    } else if(typeof value === 'boolean'||typeof value === 'function'||typeof value === 'symbol') {
+        return value.toString();
+    } else if(typeof value === 'bigint') {
+        // just print normally, +n. you cannot make a BigInt(<number>n) since that throws script error.
+        return value.toString()+"n";
     }
-    new_li.style.paddingTop = this.LI_PAD;
-    new_li.style.borderTop = this.LI_BORD;
-    this.ol.appendChild(new_li);
-    return new_li;
 }
 
-HtmlLogger.prototype.overrideConsoleLog = function(){
-    //add HTML console.log and console.warn, console.error
-    var conslog = console.log, conswarn = console.warn, conserr = console.error;
-    var _this = this;
-    var htmlConsoleWrapper = function(originalConsoleFn, iSeverity){
-        return function(){
-            var new_li = _this.newLiEntry.apply(_this, arguments);
-            originalConsoleFn.apply(this, arguments);
-            if(iSeverity === 1) {
-                //warn
-                new_li.style.background = "rgb(159, 90, 0)";
-            }
-            else if(iSeverity === 2) {
-                //error
-                new_li.style.background = "rgb(119, 0, 0)";
-            }
-        }
-    }
-
-    //controls hide/unhide of arrays and objects logged in HTML
-    this.ol.addEventListener("click",function(e){
-        if(e.target && e.target.tagName === "BUTTON" && !e.target.id && e.target.nextElementSibling)
-        {
-            //show object
-            e.target.nextElementSibling.style.display = e.target.nextElementSibling.style.display === "" ? "none" : "";
-        }
-    });
-    console.log = htmlConsoleWrapper(conslog);
-    console.warn =  htmlConsoleWrapper(conswarn, 1);
-    console.error =  htmlConsoleWrapper(conserr, 2);
-};
-
-function assertPrimitive(x) {
-    //for arrays and plain objects, assume safe from circular references
-    if (Array.isArray(x)) {
-        return JSON.stringify(x);
-    }
-    else if(typeof x === "object" && x != null) {
-        if(x.constructor && x.constructor.name !== "Object") {
-            return "["+x.constructor.name+"]";
-        } else {
-            return JSON.stringify(x);
-        }
-    }
-    else if (typeof x === "function") {
-        return "Function";
-    }
-    else {
-        return x === "" ? '""' : x;
+HtmlLogger.prototype.appendLoggedValue = function(logged_value, container){
+    if(Array.isArray(logged_value)){
+        logged_value.forEach(function(element){
+            container.appendChild(element);
+        });
+    } else {
+        container.textContent += logged_value;
     }
 }
 
