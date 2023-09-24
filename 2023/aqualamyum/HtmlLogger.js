@@ -43,7 +43,7 @@ function HtmlLogger() {
     });
 
     var style = document.createElement('style');
-    style.innerHTML = `.htmlLoggerLiEntry { border-top:1px solid #777; padding-top: 3px; }
+    style.innerHTML = `.htmlLoggerLiEntry { border-top:1px solid #777; padding-top: 3px; user-select: all;}
     .htmlLoggerLiEntry.htmlLoggerWarningEntry { background-color:rgb(159, 90, 0); }
     .htmlLoggerLiEntry.htmlLoggerErrorEntry{ background-color:rgb(119, 0, 0); }
     .htmlLoggerSpanEntry{margin-left:3px;overflow-wrap: anywhere;}
