@@ -83,9 +83,18 @@ window.addEventListener('resize',resizer);
 var enbutton = document.getElementById('credits-en');
 var jpbutton = document.getElementById('credits-jp');
 var credits = document.getElementById('credits');
+
+var strKey = "opt_lang";
+var opt_lang = localStorage.getItem(strKey);
+credits.setAttribute("data-lang","jp");
+if(opt_lang ==="EN" || opt_lang === "JP") {
+    credits.setAttribute("data-lang",opt_lang.toLowerCase());
+}
 document.getElementById('credits-en').onclick = function() {
     credits.setAttribute("data-lang","en");
+    localStorage.setItem(strKey,"EN");
 }
 document.getElementById('credits-jp').onclick = function() {
     credits.setAttribute("data-lang","jp");
+    localStorage.setItem(strKey,"JP");
 }
