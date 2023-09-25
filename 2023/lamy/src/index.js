@@ -205,17 +205,17 @@ function toggleCreditsPopup(bool) {
 }
 
 var strKey = "opt_lang";
-idbKeyval.get(strKey).then(function(returnVal){
-    if(returnVal ==="EN" || returnVal === "JP") {
-        document.body.setAttribute("data-swaplang",returnVal);
-        document.getElementById("lang-btn").innerHTML = returnVal;
-    }
-});
-
+var opt_lang = localStorage.getItem(strKey);
+document.body.setAttribute("data-swaplang","JP");
+document.getElementById("lang-btn").innerHTML = "JP";
+if(opt_lang ==="EN" || opt_lang === "JP") {
+    document.body.setAttribute("data-swaplang",opt_lang);
+    document.getElementById("lang-btn").innerHTML = opt_lang;
+}
 function toggleLanguage(){
     var current = document.body.getAttribute("data-swaplang");
     var next = current === "JP" ? "EN" : "JP";
     document.body.setAttribute("data-swaplang",next);
     document.getElementById("lang-btn").innerHTML = next;
-    idbKeyval.set(strKey,next);
+    localStorage.setItem(strKey,next);
 }
