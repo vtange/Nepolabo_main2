@@ -1,0 +1,17 @@
+/bar-yukihana /_bar-yukihana 301
+/bar-yukihana/:file /_bar-yukihana/:file 301
+/nene /2021/nene 301
+/polka /2021/polka 301
+/lamy /2021/lamy 301
+/botan /2021/botan 301
+/nene/:file /2021/nene/:file 301
+/polka/:file /2021/polka/:file 301
+/lamy/:file /2021/lamy/:file 301
+/botan/:file /2021/botan/:file 301
+/2021/polka/* /2021/polka/index.html 200
+/2021/botan/* /2021/botan/index.html 200
+/2022/nene/* /2022/nene/index.html 200
+/2022/polka/* /2022/polka/index.html 200
+/2022/botan/* /2022/botan/index.html 200
+/2023/polka/* /2023/polka/index.html 200
+/2023/botan/* /2023/botan/index.html 200
