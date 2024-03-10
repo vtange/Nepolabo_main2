@@ -1,14 +1,4 @@
 [[redirects]]
-from = "/bar-yukihana"
-to = "/_bar-yukihana"
-status = 301
-
-[[redirects]]
-from = "/bar-yukihana/:file"
-to = "/_bar-yukihana/:file"
-status = 301
-
-[[redirects]]
 from = "/nene"
 to = "/2021/nene"
 status = 301
