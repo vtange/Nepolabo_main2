@@ -3,6 +3,7 @@ body {
     color: white;
     overflow: hidden;
     margin: 0;
+    touch-action: none; /* required to prevent zooming panning in iOS Safari 10+, which overrides "user-scalable=no" */
 }
 
 a {
