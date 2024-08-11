@@ -1,0 +1,57 @@
+body {
+    font-family: serif;
+    margin: 0;
+}
+
+@keyframes slowShow {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+#ie11-cover {
+    background-color: aliceblue;
+    transform: scale(0);
+    -ms-transform: scale(1);
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: 99;
+}
+
+#nojs-cover {
+    animation: slowShow 0.5s normal forwards ease-in-out;
+    animation-delay: 2s;
+    background-color: rgb(253, 213, 220);
+    border: 2px solid pink;
+    border-radius: 10px;
+    padding: 5px;
+    position: absolute;
+    left: 50%;
+    opacity:0;
+    top: 2rem;
+    transform: translatex(-50%);
+    z-index: 99;
+}
+
+.ne {
+    border-left: 30px solid orange;
+}
+.po {
+    border-left: 30px solid crimson;
+}
+.la {
+    border-left: 30px solid lightblue;
+}
+.bo {
+    border-left: 30px solid darkseagreen;
+}
+.source {
+    cursor: pointer;
+}
+.correct {
+    background-color: rgb(214, 247, 214);
+}
