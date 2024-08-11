@@ -96,6 +96,10 @@ body, #main {
     width: 100%;
 }
 
+a[aria-label="Nepolabo Project 2024"] .bg {
+    background-image:url('./2024/android-chrome-512x512.png');
+}
+
 a[aria-label="Nepolabo Project 2023"] .bg {
     background-image:url('./art/23.jpg');
 }
