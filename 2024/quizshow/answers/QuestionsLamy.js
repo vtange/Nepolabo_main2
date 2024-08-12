@@ -463,8 +463,8 @@ var questionsLamy = {
        }]
     }],
     LamyMouse: [{
-        EN:"What brand computer mouse does Lamy use?",
-        JP:"ラミィさんの使ってるマウスのブランドは？",
+        EN:"What brand computer mouse did Lamy use up to 2024?",
+        JP:"2024年までラミィさんはどんなブランドのマウスを使いましたか？",
         choices:[{
            EN: "Razer",//
            JP: "RAZER",
@@ -484,8 +484,8 @@ var questionsLamy = {
        }]
     }],
     LamyKeyboard: [{
-        EN:"What brand keyboard does Lamy use?",
-        JP:"ラミィさんの使ってるキーボードのブランドは？",
+        EN:"What brand keyboard did Lamy use up to 2024?",
+        JP:"2024年までラミィさんはどんなブランドのキーボードを使いましたか？",
         choices:[{
            EN: "Realforce",//
            JP: "REALFORCE",
@@ -863,8 +863,8 @@ var questionsLamy = {
        }]
     }],
     LamyMouseHow: [{
-        EN:"How did Lamy get the mouse she currently uses?",
-        JP:"ラミィさんの今使ってるマウス、どうやって手に入った？",
+        EN:"How did Lamy first get the RAZER mouse she used for a long time?",
+        JP:"ラミィさんの長い間使ってたマウス、どうやって初めて手に入りましたか？",
         choices:[{
            EN: "Gift from Yukimin",//
            JP: "雪民からのギフト",
