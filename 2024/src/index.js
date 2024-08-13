@@ -132,7 +132,7 @@ function toggleLanguage(){
 var debutN = 1723474800000;
 var debutP = 1723734000000;
 var debutL = 1723388400000;
-var debutB = 1723561200000;
+var debutB = 1723615200000;//+15hr
 var debutA = 1723647600000;
 // var debutN = 1691852400000;
 // var debutP = 1692111600000;
