@@ -829,8 +829,8 @@ var questionsPolka = {
         JP: "ポルカが大好きなアイドルグループのメンバーが出演する公式番組で共演した。何のグループですか？",
         choices: [
           {
-            EN: "Momoiro Clover Z",
-            JP: "ももいろクローバーZ",
+            EN: "BiSH",
+            JP: "BiSH",
             l6: "X"
           },
           {

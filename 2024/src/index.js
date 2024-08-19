@@ -62,9 +62,14 @@ if (dataNene) {
     })
     document.getElementById('nenecards').setAttribute("hasData","true");
 }
-// if (dataPolka) {
-//     m.mount(document.getElementById('polkacards'), fanletters)
-// }
+if (dataPolka) {
+    m.mount(document.getElementById('polkacards'), {
+        view: ()=>
+            m(fanletters, {data:dataPolka})
+
+    })
+    document.getElementById('polkacards').setAttribute("hasData","true");
+}
 if (dataLamy) {
     m.mount(document.getElementById('lamycards'), {
         view: ()=>
@@ -73,9 +78,9 @@ if (dataLamy) {
     })
     document.getElementById('lamycards').setAttribute("hasData","true");
 }
-// if (dataBotan) {
-//     m.mount(document.getElementById('botancards'), fanletters)
-// }
+if (document.getElementById("botancards").hasChildNodes()) {
+    document.getElementById('botancards').setAttribute("hasData","true");
+}
 
 function initGallery(name){
     let gallery_a = new SimpleLightbox('#'+name+'-messages-popup .msg-art a', {disableScroll: false});
@@ -83,14 +88,16 @@ function initGallery(name){
         console.log(e); // some usefull information
     });
 }
-var fanartNplb = false;
-var fanartNene = false;
-var fanartPolka = false;
-var fanartLamy = false;
-var fanartBotan = false;
+var fanart = {
+    nepolabo: false,
+    nene: false,
+    polka: false,
+    lamy: false,
+    botan: false,
+};
 function toggleMessagesPopup(name, bool) {
-    if(!fanartNplb) {
-        fanartNplb = true;
+    if(!fanart[name]) {
+        fanart[name] = true;
         initGallery(name);
     }
     document.body.classList.toggle("showMessages"+name, bool);
