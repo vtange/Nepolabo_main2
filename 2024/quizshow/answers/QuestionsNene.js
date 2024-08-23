@@ -404,7 +404,7 @@ var questionsNene = {
            l6: "X",
        },{
         EN: "Cassis Orange",
-        JP: "サイゼリヤ",
+        JP: "カシスオレンジ",
         l6: "O",
        },{
         EN: "Gin and Tonic",

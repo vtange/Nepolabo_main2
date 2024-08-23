@@ -562,8 +562,8 @@ var questionsLamy = {
         JP: "酔うやきいも",
         l6: "X",
        },{
-        EN: "Asahi Beer",
-        JP: "アサヒビール",
+        EN: "Yamazaki 55 years",
+        JP: "山崎ウイスキー５５年",
         l6: "O",
        }]
     }],
@@ -1011,7 +1011,7 @@ var questionsLamy = {
     }],
     LamyMineCraftBlock: [{
         EN:"What is Lamy's favorite block in Minecraft?",
-        JP:"ラミィさんマインクラフトの中好きなブロックは？",
+        JP:"ラミィさんの一番好きなマインクラフトのブロックは？",
         choices:[{
            EN: "Redstone",
            JP: "レッドストーン",
@@ -1074,7 +1074,7 @@ var questionsLamy = {
     }],
     LamyFavPastry: [{
         EN:"Which of the below is Lamy's favorite pastry?",
-        JP:"以下のうち、ラミィのお気に入りのお菓子はどれ？",
+        JP:"以下のうち、ラミィさんのお気に入りのお菓子はどれ？",
         choices:[{
            EN: "wafers",
            JP: "ウエハース",
@@ -1237,8 +1237,8 @@ var questionsLamy = {
        }]
     }],
     LamyASMRGaming: [{
-        EN:"What game did Lamy stream once with an ASMR mic?",
-        JP:"ラミィさんがASMRマイクで配信したゲームは何でしたか？",
+        EN:"What game did Lamy stream once with an ASMR/binaural mic?",
+        JP:"ラミィさんがASMR・バイノーラルマイクで配信したことあるゲームは何でしたか？",
         choices:[{
            EN: "Kirby",
            JP: "カービィ",

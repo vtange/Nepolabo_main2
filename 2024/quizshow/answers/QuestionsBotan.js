@@ -579,8 +579,8 @@ var questionsBotan = {
         JP: "しろつめ草",
         l6: "X",
        },{
-        EN: "sunflowers",//
-        JP: "ひまわり",
+        EN: "rafflesia",//
+        JP: "ラフレシア",
         l6: "O",
        }],
        src:"https://www.youtube.com/watch?v=0IVJAxM1XBI",
@@ -674,7 +674,7 @@ var questionsBotan = {
     }],
     botanoguiness: [{
        EN:"What Guiness record did Botan try out for in 2024?",
-       JP:"2024年にぼたんは何のギネス記録を挑戦しましたか？",
+       JP:"2024年にぼたんさんは何のギネス記録を挑戦する企画ありましたか？",
        choices:[{
           EN: "world's largest ramen bowl",
           JP: "世界最大のラーメン碗",
@@ -689,5 +689,26 @@ var questionsBotan = {
        l6: "X",
       }],
       src:["https://www.youtube.com/watch?v=TVxZ-V3kFnM","https://x.com/hololivetoday/status/1818235963417698652"],
+   }],
+   BotanBirthday: [{
+       EN:"What is Botan's birthday?",
+       JP:"ぼたんさんのお誕生日は？",
+       choices:[{
+          EN: "Nov 15",
+          JP: "11月15日",
+          l6: "X",
+      },{
+       EN: "Dec 15",
+       JP: "12月15日",
+       l6: "X",
+      },{
+       EN: "Sep 8",
+       JP: "9月8日",
+       l6: "O",
+      },{
+       EN: "Aug 14",
+       JP: "8月14日",
+       l6: "X",
+      }]
    }],
 }
