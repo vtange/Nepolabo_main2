@@ -711,4 +711,26 @@ var questionsBotan = {
        l6: "X",
       }]
    }],
+   BotanVeggies: [{
+       EN:"What is a vegetable that both Nene and Botan doesn't like?",
+       JP:"ぼたんさんはねねさんと同じく嫌いな野菜は何ですか？",
+       choices:[{
+          EN: "tomotoes",
+          JP: "トマト",
+          l6: "X",
+      },{
+       EN: "potatoes",
+       JP: "芋",
+       l6: "X",
+      },{
+       EN: "bell peppers",
+       JP: "ピーマン",
+       l6: "O",
+      },{
+       EN: "lettuce",
+       JP: "レタス",
+       l6: "X",
+      }],
+      src:"https://www.youtube.com/watch?v=pAJVGKHMlfM",
+   }],
 }

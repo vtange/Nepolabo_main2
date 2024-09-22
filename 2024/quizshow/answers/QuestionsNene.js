@@ -824,4 +824,26 @@ var questionsNene = {
        }],
        src:"https://www.youtube.com/watch?v=bg9M4KTNnHY"
     }],
+    nenepro: [{
+        EN:"What is Nene's Youtube membership name?",
+        JP:"ねねさんのメンバーシップの名前は何ですか？",
+        choices:[{
+           EN: "NeneLive",
+           JP: "ねねライブ",
+           l6: "X",
+       },{
+        EN: "Nene Production",
+        JP: "ねねプロ",
+        l6: "O",
+       },{
+        EN: "Nene Studio",
+        JP: "ねねスタジオ",
+        l6: "X",
+       },{
+        EN: "Nene Stage",
+        JP: "ねねステージ",
+        l6: "X",
+       }],
+       src:"https://www.youtube.com/watch?v=DF0muzWDk9U"
+    }],
 }

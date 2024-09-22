@@ -1851,8 +1851,8 @@ var questionsLamy = {
         JP: "みるく",
         l6: "O",
        },{
-        EN: "Yukimin-san",
-        JP: "ユキミンさん",
+        EN: "Komugi",
+        JP: "こむぎ",
         l6: "X",
        },{
         EN: "Chiroru",
