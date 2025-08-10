@@ -1,1 +1,1 @@
-var hashes = {"main":{"css":"main.82d68f91fdd6e23a5e73.css","js":"main.8a22f62a409fa5a77ada.js"},"vendors~main":{"js":"vendors~main.0953db6c3cbfc23b8b2d.js"},"":{"wasm":"5e246a10319df8547016.wasm","html":"index.html"}};
+var hashes = {"main":{"css":"main.82d68f91fdd6e23a5e73.css","js":"main.d03033e92b3e06ef415d.js"},"vendors~main":{"js":"vendors~main.0953db6c3cbfc23b8b2d.js"},"":{"wasm":"5e246a10319df8547016.wasm","html":"index.html"}};
