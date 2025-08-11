@@ -44,7 +44,7 @@ var fanletters = {
                     m(".messages",
                         [m('div[lang="' + (o.isJP ? 'ja' : 'en') + '"]',
                                 m("p", o.msg)),
-                            (o.msg_jp ? m('div[lang="ja"]', m("p", o.msg_jp)) : ""),
+                            (o.msg_jp ? m('div[lang="ja"]', m("p", o.msg_jp)) : m('div[lang="ja"]', m(`p[data-name="${o.name}"]`, ""))),
                             (o.art ? m(".msg-art", m('a[href="' + o.art.replace(/\_\./g, ".").replace(/art(.*)\/min/g, "art$1") + '"]', m('img[src="' + o.art + '"][alt=""][title=""]'))) : "")
                         ]
                     )
@@ -159,15 +159,10 @@ function toggleLanguage(){
 
 // countdown stuff
 var debutN = 1723474800000;
-var debutP = 1723734000000;
+var debutP = 1755270000000;
 var debutL = 1723388400000;
-var debutB = 1723615200000;//+15hr
+var debutB = 1755097200000;//+botan debut time 2025
 var debutA = 1723647600000;
-// var debutN = 1691852400000;
-// var debutP = 1692111600000;
-// var debutL = 1691766000000;
-// var debutB = 1691938800000;
-// var debutA = 1692000000000;
 var debuts = [debutN,debutP,debutL,debutB];
 var deadlineClasses = ["happyAnnivNene","happyAnnivPolka","happyAnnivLamy","happyAnnivBotan"];
 function secondsToHms(d) {
@@ -233,7 +228,7 @@ var data2 = [
 {"name":"Kuris","twit":"Moekuris","art":["kuris_1_.jpg","kuris_2_.jpg"]},
 {"name":"ClumsyHero クラムジー・ヒーロー","twit":"clumsyhero","art":["clumsyhero_1_.jpg","clumsyhero_2_.jpg"]},
 {"name":"GrandUNI","twit":"","art":["grand_.jpg"]},
-{"name":"X-Kill","twit":"MauCaVel","art":["xkill_.jpg"]},
+{"name":"X-Kill","twit":"MauCaVel","art":["xkill_.jpg","xkill_1_.jpg","xkill_2_.jpg","xkill_3_.jpg"]},
 {"name":"L Y K A N","twit":"LykanSekiro","art":["lykan_1_.jpg","lykan_2_.jpg","lykan_3_.jpg","lykan_4_.jpg","lykan_5_.jpg"]},
 {"name":"Xemmy","twit":"Xemzemy","art":["xemmy_.jpg"]},
 {"name":"DarkSamus100","twit":"","art":["darksamus100_1_.jpg","darksamus100_2_.jpg","darksamus100_3_.jpg","darksamus100_4_.jpg","darksamus100_5_.jpg"]},
@@ -253,7 +248,7 @@ var data2 = [
 {"name":"でぃーしゃ","twit":"9862jade","art":["9862jade_1_.jpg","9862jade_2_.jpg"]},
 {"name":"ずんどこべろんちょ","twit":"","art":["ずんどこべろんちょ_.jpg"]},
 {"name":"Ceradys","twit":"Cera_dys","art":["cera_.jpg"]},
-{"name":"HaruCore","twit":"","art":["harucore_1_.jpg","harucore_2_.jpg","harucore_3_.jpg","harucore_4_.jpg","harucore_5_.jpg"]},
+{"name":"HaruCore","twit":"HaruCore562","art":["harucore_1_.jpg","harucore_2_.jpg","harucore_3_.jpg","harucore_4_.jpg","harucore_5_.jpg"]},
 {"name":"Yuki","twit":"","art":["yuki_.jpg"]},
 {"name":"まる","twit":"","art":["maru_1_.jpg","maru_2_.jpg"]},
 {"name":"Unearthly","twit":"unearthlycoder","art":["unearthly_.jpg"]},
