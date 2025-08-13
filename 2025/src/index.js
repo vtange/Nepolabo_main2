@@ -91,6 +91,14 @@ if (dataBotan) {
 
     })
     document.getElementById('botancards').setAttribute("hasData","true");
+    if(Array.isArray(botanJP)){
+        botanJP.forEach(function(o){
+            var jpmsg = document.querySelector(`#botancards p[data-name="${o.name}"]`);
+            if(jpmsg){
+                jpmsg.textContent = o.msg_jp;
+            }
+        })
+    }
 }
 
 function initGallery(name){
