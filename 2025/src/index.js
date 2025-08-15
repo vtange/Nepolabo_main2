@@ -75,6 +75,14 @@ if (dataPolka) {
 
     })
     document.getElementById('polkacards').setAttribute("hasData","true");
+    if(Array.isArray(polkaJP)){
+        polkaJP.forEach(function(o){
+            var jpmsg = document.querySelector(`#polkacards p[data-name="${o.name}"]`);
+            if(jpmsg){
+                jpmsg.textContent = o.msg_jp;
+            }
+        })
+    }
 }
 if (dataLamy) {
     m.mount(document.getElementById('lamycards'), {
