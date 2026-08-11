@@ -38,7 +38,10 @@ var fanletters = {
                         [m('div[lang="' + (o.isJP ? 'ja' : 'en') + '"]',
                                 m("p", o.msg)),
                             (o.msg_jp ? m('div[lang="ja"]', m("p", o.msg_jp)) : m('div[lang="ja"]', m(`p[data-name="${o.name}"]`, ""))),
-                            (o.art ? m(".msg-art", m('a[href="' + o.art.replace(/\_\./g, ".").replace(/art(.*)\/min/g, "art$1") + '"]', m('img[src="' + o.art + '"][alt=""][title=""]'))) : "")
+                            (o.art ? m(".msg-art", Array.isArray(o.art) ? o.art.map((urlMin)=>
+                            m('a[href="'+urlMin.replace(/\_\./g, ".").replace(/art(.*)\/min/g, "art$1") +'"][data-attr='+o.name+']',
+                                m('img[src="' + urlMin + '"][alt=""][title=""]')))
+                                :  m('a[href="' + o.art.replace(/\_\./g, ".").replace(/art(.*)\/min/g, "art$1") + '"]', m('img[src="' + o.art + '"][alt=""][title=""]'))) : "")
                         ]
                     )
                 ])

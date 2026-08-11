@@ -510,6 +510,7 @@ body.showMessages #aqua-section {
 
 .msg-art {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     overflow: hidden;
 }
