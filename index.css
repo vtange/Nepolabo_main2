@@ -96,6 +96,10 @@ body, #main {
     width: 100%;
 }
 
+a[aria-label="Nepolabo Project 2026"] .bg {
+    background-image:url('./2026/twitter_lrg.jpg');
+}
+
 a[aria-label="Nepolabo Project 2025"] .bg {
     background-image:url('./2025/twitter_lrg.jpg');
 }
