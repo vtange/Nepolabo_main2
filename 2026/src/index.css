@@ -514,6 +514,9 @@ body.showMessages #aqua-section {
     justify-content: center;
     overflow: hidden;
 }
+.msg-art img {
+    width: 100%;
+}
 /*------^^^^^^----MESSAGES----^^^^^^-----*/
 .title {
     background-color: rgba(24, 26, 134, 0.685);
